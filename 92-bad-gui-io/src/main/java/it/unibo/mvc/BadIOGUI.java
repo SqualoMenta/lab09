@@ -10,8 +10,12 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -24,12 +28,16 @@ import java.util.Random;
  * This application does not exploit the model-view-controller pattern, and as
  * such is just to be used to learn the basics, not as a template for your
  * applications.
+ * 
+ * PATH was changed in order to put .txt in a place where is more accesible
  */
 public class BadIOGUI {
 
     private static final String TITLE = "A very simple GUI application";
-    private static final String PATH = System.getProperty("user.home")
-            + File.separator
+    // private static final String PATH = System.getProperty("user.home")
+    // + File.separator
+    // + BadIOGUI.class.getSimpleName() + ".txt";
+    private static final String PATH = "src" + File.separator + "main" + File.separator + "resources" + File.separator
             + BadIOGUI.class.getSimpleName() + ".txt";
     private static final int PROPORTION = 5;
     private final Random randomGenerator = new Random();
@@ -53,6 +61,24 @@ public class BadIOGUI {
         frame.remove(canvas);
         frame.setContentPane(horzPanel);
         horzPanel.add(write, BoxLayout.X_AXIS);
+        /*
+         * Ex 01.02
+         */
+        final JButton read = new JButton("Read");
+        horzPanel.add(read);
+        read.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try (final BufferedReader br = new BufferedReader(new FileReader(PATH))) {
+                    System.out.println(br.readLine());
+                } catch (IOException e1) {
+                    JOptionPane.showMessageDialog(frame, "Scrivere il file prima di leggerlo", "Error",
+                            JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+
+        });
         /*
          * Handlers
          */
@@ -108,6 +134,6 @@ public class BadIOGUI {
      * @param args ignored
      */
     public static void main(final String... args) {
-       new BadIOGUI().display();
+        new BadIOGUI().display();
     }
 }
