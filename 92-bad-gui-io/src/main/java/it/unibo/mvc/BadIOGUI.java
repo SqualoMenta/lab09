@@ -46,6 +46,14 @@ public class BadIOGUI {
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         /*
+         * Ex 01.01
+         */
+        final JPanel horzPanel = new JPanel();
+        horzPanel.setLayout(new BoxLayout(horzPanel, BoxLayout.LINE_AXIS));
+        frame.remove(canvas);
+        frame.setContentPane(horzPanel);
+        horzPanel.add(write, BoxLayout.X_AXIS);
+        /*
          * Handlers
          */
         write.addActionListener(new ActionListener() {
@@ -91,6 +99,7 @@ public class BadIOGUI {
          * OK, ready to push the frame onscreen
          */
         frame.setVisible(true);
+        frame.pack();
     }
 
     /**
