@@ -53,7 +53,7 @@ public class BadIOGUI {
          * Ex 01.01
          */
         final JPanel horzPanel = new JPanel();
-        horzPanel.setLayout(new BoxLayout(horzPanel, BoxLayout.LINE_AXIS));
+        horzPanel.setLayout(new BoxLayout(horzPanel, BoxLayout.X_AXIS));
         frame.remove(canvas);
         frame.setContentPane(horzPanel);
         horzPanel.add(write, BoxLayout.X_AXIS);
