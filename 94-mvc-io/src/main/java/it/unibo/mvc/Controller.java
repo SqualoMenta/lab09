@@ -6,11 +6,11 @@ import java.util.List;
  *
  */
 public interface Controller {
-    public void setString(String i); 
+    void setString(String i);
 
-    public String getString();
+    String getString();
 
-    public List<String> getHistory();
-    
-    public void print();
+    List<String> getHistory();
+
+    void print();
 }

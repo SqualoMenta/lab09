@@ -9,8 +9,6 @@ import javax.swing.JTextField;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * A very simple program using a graphical interface.
@@ -19,15 +17,16 @@ import java.awt.event.ActionListener;
 public final class SimpleGUI {
 
     private final JFrame frame = new JFrame();
-    private final JTextField title = new JTextField();
-    private final JTextArea body = new JTextArea();
-    private final JButton print = new JButton("Print");
-    private final JButton showHistory = new JButton("Show History");
-    private final JPanel pane = new JPanel(new BorderLayout());
-    private final JPanel endPage = new JPanel(new BorderLayout());
     private final Controller cntr = new SimpleController();
 
     public SimpleGUI() {
+        final JTextField title = new JTextField();
+        final JTextArea body = new JTextArea();
+        final JButton print = new JButton("Print");
+        final JButton showHistory = new JButton("Show History");
+        final JPanel pane = new JPanel(new BorderLayout());
+        final JPanel endPage = new JPanel(new BorderLayout());
+
         pane.add(title, BorderLayout.NORTH);
         pane.add(body, BorderLayout.CENTER);
         endPage.add(showHistory, BorderLayout.LINE_START);
