@@ -7,7 +7,6 @@ import it.unibo.mvc.api.DrawResult;
 
 public class DrawNumberOutputView implements DrawNumberView {
 
-    private static final String FRAME_NAME = "Printer Frame";
     private static final String NEW_GAME = ": a new game starts!";
 
     @Override
